@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(222, 222, 222);                                                                                                                                                                                                                                                                                                                                                                           
+}
+#CLASS {
+text-align: center;
+}
+button{
+    color: rgb(56, 56, 56);
+    background-color: rgb(180, 179, 179);
+    width: 100px;
+    height: 30px;
+    border: 2px solid rgb(111, 110, 110);
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: all 100ms steps(6);
+}
+#CLASS{
+    height: 300px;
+    width: 290px;
+    background-color: rgb(118, 118, 118);
+    border:2px solid  black;
+    border-bottom: none;
+    border-top: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    flex-direction: column;
+}
+#Join:hover{
+    scale: 1.1;
+    border: 1px solid black;
+}
+#Join:active{
+    color: white;
+    background-color: black;
+}
+#Create:hover{
+    scale:1.1;
+    border: 1px solid black;
+}
+#Create:active{
+    color: white;
+    background-color: black;
+}
