@@ -21,4 +21,5 @@ function populateList() {
         itemList.appendChild(li);
     });
 }
+//run program
 populateList();
