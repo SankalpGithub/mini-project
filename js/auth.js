@@ -28,12 +28,13 @@ async function login(){
           localStorage.setItem('auth_token', data['authToken']);
           window.location.href = "dashboard_C.html";
         }else{
-          console.log(data);
+          alert(data['message']);
         }
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
       });
+      Cr_password.value = '';
   }
 
   // signup page
@@ -128,9 +129,8 @@ async function login(){
 
   //forgot password
   async function forgot_pass() {
-    var query = new URLSearchParams(window.location.search);
-    var email = query.get('email');
-    const new_pass = parseInt(document.getElementById("new_pass").value);
+    const email = document.getElementById("email").value;
+    const new_pass =document.getElementById("new_pass").value;
     // check new pass and confrim pass
   
     let postData = {
@@ -154,7 +154,7 @@ async function login(){
       .then((data) => {
         console.log(data);
         if(data['status'] == true){
-          
+          alert("emal for reset password is sent to "+email)
           }
       })
       .catch((error) => {

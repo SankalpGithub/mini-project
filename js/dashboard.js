@@ -1,25 +1,71 @@
 const authToken = localStorage.getItem('auth_token');
-console.log(authToken);
-function new_btn(){
-    window.location.href = "options.html";
+fetchdata();
+let email;
+let userdata;
+async function fetchdata(){
+// URL of the API you want to make a GET request to
+  await fetch("https://takemyattendence-27rl.onrender.com/user", {
+    method: 'GET',
+    headers: {
+        "authToken": authToken,
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      email = data['email'];
+        displayData(data['name'], data['createClass']);
+      })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
+  }
+  
+  const displayData = (username, createClassArray) => {
+    document.getElementById("username").textContent = username;
+    createClassArray.map((ele)=>{
+        const card = `<li onclick="lectures(${ele.classId, ele.className})">
+        <div id="class-name">
+            <h4>${ele.className}</h4>
+            <h6>${ele.numberOfStudents}</h6>
+            <i class="ri-delete-bin-line" onClick="deleteClass(${ele.classId})"></i>
+        </div>
+        </li>`;
+        document.getElementById("info").innerHTML += card;
+2
+    })
 }
 
-function create_class_btn(){
-    window.location.href = "create_class.html";
-}
-
-const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
-
-// Function to populate the list in HTML
-function populateList() {
-    const itemList = document.getElementById("info");
-
-    // Loop through the items array and create list items
-    items.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        itemList.appendChild(li);
+const deleteClass = async(id) => {
+  const url = "https://takemyattendence-27rl.onrender.com/deleteclass/" + id;
+  await fetch(url, {
+    method: 'DELETE',
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+        alert("Class removed successfully");
+        location.reload();
+      })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
     });
 }
-//run program
-populateList();
+
+function new_btn(){
+  window.location.href = "options.html?email=" + encodeURIComponent(email);
+}
+
+function lectures(classId, className){
+  window.location.href = `created_classes.html?lecId=${encodeURIComponent(classId)}&classname=${encodeURIComponent(className)}`;
+}
+
+

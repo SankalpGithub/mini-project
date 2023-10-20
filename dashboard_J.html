@@ -8,54 +8,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Montserrat:wght@500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-<script src="script1.js"></script>
+<script src="js/dashboard_J.js"></script>
 <link rel="stylesheet" href="css/dashboard_J.css">
 </head>
 <body>
     <div id="class">
         <div id="navbar">
             <div id="profile">
-                <img src="Username.jpg" alt="">
-                <h6>Profile</h6>
+                <img src="assets/Username.jpg" alt="">
+                <h3 id = "username">Username</h3>
             </div>
-            <h3>Username</h3>
-            <div id="new" onclick="myFunction_new()">
-                <h2>new &#43
-                </h2>
-            </div>
+            <button id="new" onclick="new_btn()">new +</a></button>
         </div>
         <div id="status">
-            <div id="your-class" onclick="myFunction4()">
-                <h5 id="your">Your Class</h5>
+            <div id="your-class">
+                <h5 id="your"><a href = "dashboard_C.html" id="created_class">Your Class</a></h5>
             </div>
             <div id="join-class">
-                <h5 id="join">Join  Class</h5>
+                <h5 id="join"><a href = "dashboard_J.html" id="join_class">Join  Class</a></h5>
             </div>
         </div>
-        <div id="info">
-            <div id="class-name">
-                <h4>Joined class name</h4>
-                <h6>No.of student</h6>
-                <i class="ri-delete-bin-line"></i>
-            </div>
+        <div id="lists">
+        <ul id="info">
+            
+        </ul>
         </div>
-        <!-- <table id="class" border="1">
-            <tr>
-                <th>
-                    <img src="Username.jpg" alt="">
-                    <h5>Profile</h5>
-                </th>
-                <th>
-                    <h3>Username</h3>
-                </th>
-                <th>
-                    <div id="new">
-                        <h2>new &#43
-                        </h2>
-                    </div>
-            </th>
-            </tr>
-        </table> -->
     </div>
 </body>
 </html>

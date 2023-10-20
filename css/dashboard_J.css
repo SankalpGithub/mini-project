@@ -9,8 +9,8 @@ body{
 }
 
 #class{
-    height: 500px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
     border: 2px solid black;
 }
 img{
@@ -19,7 +19,7 @@ img{
 }
 #navbar{
     height: 70px;
-    width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -28,9 +28,13 @@ img{
 #profile{
     margin-left: 10px;
     display: flex;
-    /* align-items: center; */
+    /* width: 100px; */
+    align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+}
+#username{
+    margin-left: 10px;
 }
 #navbar h6{
     margin: 0;
@@ -43,8 +47,10 @@ h3{
 }
 #new{
     border: 2px solid black;
-    border-radius: 9px;
+    background-color: bisque;
+    border-radius: 5px;
     height: 30px;
+    width: 60px;
     margin-right: 10px;
 }
 h2{
@@ -55,17 +61,17 @@ h2{
 }
 #status{
     height: 70px;
-    width: 500px;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 #your-class{
     height: 70px;
-    width: 250px;
+    width: 100%;
     /* color: rgb(38, 223, 1); */
     color: black;
-    border: 2px solid blue;
+    border: 1px solid rgb(3, 3, 3);
     border-left: none;
     display: flex;
     align-items: center;
@@ -73,49 +79,45 @@ h2{
 }
 #join-class{
     height: 70px;
-    width: 250px;
+    width: 100%;
     /* color: rgb(38, 223, 1); */
-    color: black;
-    border: 2px solid blue;
+    color: rgb(38, 223, 1);
+    border: 1px solid rgb(0, 0, 0);
     border-right: none;
     border-left: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 #your:hover{
     color: rgb(38, 223, 1);
-}
-#your:active{
-    color: rgb(38, 223, 1);
-    font-size: 20px;
+    cursor: pointer;
 }
 #join:hover{
     color: rgb(38, 223, 1);
+    cursor: pointer;
 }
-#join:active{
+#created_class{
+    text-decoration: none;
+    color: black;
+}
+#created_class:hover{
     color: rgb(38, 223, 1);
-    font-size: 20px;
 }
 h5{
     font-weight: 700px;
 }
 #info{
     height: 360px;
-    width: 500px;
+    width: 50%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    list-style-type: none;
+    flex-direction: column;
+    margin-left: 25%;
 }
-#class-name{
-    height: 50px;
-    width: 325px;
-    background-color: yellow;
-    border: 3px solid black;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+li{
+    margin: 10px 0px 10px 0px;
 }
 #class-name:hover{
     scale: 1.1;
@@ -124,6 +126,17 @@ h5{
 #class-name:active{
     background-color: rgb(177, 175, 175);
     color: white;
+}
+#class-name{
+    margin-top: 10px;
+    height: 60px;
+    width: 100%;
+    background-color: rgb(178, 208, 248);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 h4{
     margin-left: 60px;
@@ -139,3 +152,10 @@ h6{
     border: none;
     padding-right: 10px;
 } */
+.new_btn{
+    text-decoration: none;
+}
+#join_class{
+    text-decoration: none;
+    color:rgb(38, 223, 1)
+}
