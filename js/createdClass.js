@@ -69,6 +69,12 @@ function exportPage(lectureId, classDate, className){
   window.location.href = `export.html?Id=${lectureId}&className=${className}&date=${classDate}`;
 }
 
+function requested(){
+//   var query = new URLSearchParams(window.location.search);
+// var classId = query.get("classId");
+  window.location.href=`requestedStudents.html?classId=${classId}`;
+}
+
 const setupPage = () => {
   lectures();
   document.addEventListener("DOMContentLoaded", function () {
