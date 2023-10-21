@@ -84,7 +84,7 @@ h2{
     height: 70px;
     width: 250px;
     /* color: rgb(38, 223, 1); */
-    color: black;
+    color: rgb(38, 223, 1);
     border: 2px solid blue;
     border-left: none;
     display: flex;
@@ -126,6 +126,10 @@ h2{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+.li{
+    margin: 20px;
 }
 #ud_further{
     height: 50px;

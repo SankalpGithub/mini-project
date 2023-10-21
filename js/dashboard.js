@@ -28,7 +28,7 @@ async function fetchdata(){
   const displayData = (username, createClassArray) => {
     document.getElementById("username").textContent = username;
     createClassArray.map((ele)=>{
-        const card = `<li onclick="lectures(${ele.classId, ele.className})">
+        const card = `<li onclick="lectures(${ele.classId}, '${ele.className}')">
         <div id="class-name">
             <h4>${ele.className}</h4>
             <h6>${ele.numberOfStudents}</h6>
@@ -36,7 +36,6 @@ async function fetchdata(){
         </div>
         </li>`;
         document.getElementById("info").innerHTML += card;
-2
     })
 }
 
@@ -64,8 +63,10 @@ function new_btn(){
   window.location.href = "options.html?email=" + encodeURIComponent(email);
 }
 
-function lectures(classId, className){
-  window.location.href = `created_classes.html?lecId=${encodeURIComponent(classId)}&classname=${encodeURIComponent(className)}`;
+function lectures(classId,className){
+  var url = `created_classes.html?classId=${classId}&className=${className}`;
+  console.log(url)
+  window.location.href = url;
 }
 
 
