@@ -29,14 +29,21 @@ async function fetchdata(){
   const displayData = (username, joinClassArray) => {
     document.getElementById("username").textContent = username;
     joinClassArray.map((ele)=>{
-        const card = `<li>
+        const card = `<li onclick="myAttendence(${ele.classId})">
         <div id="class-name" onclick="joinedClasses()">
             <h4>${ele.className}</h4>
-            <h6>${ele.numberOfStudents}</h6>
         </div>
         </li>`;
         document.getElementById("info").innerHTML += card;
     })
+}
+
+function new_btn(){
+  window.location.href = "options.html?email=" + encodeURIComponent(email);
+}
+
+function myAttendence(classId){
+  window.location.href= `myAttendence.html?classId=${classId}&email=${email}`;
 }
 
  // <i class="ri-delete-bin-line" onClick="deleteClass(${ele.classId})"></i>

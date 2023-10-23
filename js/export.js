@@ -24,6 +24,7 @@ async function exportlist(lecID){
         return response.json();
         })
         .then((data) => {
+            console.log(data)
         displayData(data)
         })
         .catch((error) => {

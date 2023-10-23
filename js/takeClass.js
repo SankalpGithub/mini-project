@@ -132,3 +132,7 @@ function lectures(){
   var url = `dashboard_C.html`;
   window.location.href = url;
 }
+
+function cancel(){
+  window.history.back();
+}

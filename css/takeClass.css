@@ -13,7 +13,7 @@ body{
 }
 table{
     width: 1300px;
-    height: 90vh;
+    min-height: 30vh;
     padding: 2.5px 0 2.5px 90px;
     margin-top: 60px;
     border-radius: 40px;

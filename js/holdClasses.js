@@ -39,7 +39,7 @@ async function lectures() {
 function sortfun(lecture){
   var uplodedlec = [];
   lecture.map((ele) => {
-    if(ele.lectureStatus == 11){
+    if(ele.lectureStatus == 10){
       uplodedlec.push(ele)
     }
   });
@@ -50,7 +50,7 @@ function sortfun(lecture){
 const displayData = (lectureArray) => {
   lectureArray.reverse();
   lectureArray.map((ele) => {
-    const card = ` <li id="ud_further" onclick="exportPage(${ele._id}, '${ele.date}', '${className}')">
+    const card = ` <li id="ud_further" onclick="takeClass()">
         <div id="date">
             <h5>${ele.date}</h5>
         </div>
@@ -65,13 +65,9 @@ const displayData = (lectureArray) => {
   });
 };
 
-function exportPage(lectureId, classDate, className){
-  window.location.href = `export.html?Id=${lectureId}&className=${className}&date=${classDate}`;
-}
+
 
 function requested(){
-//   var query = new URLSearchParams(window.location.search);
-// var classId = query.get("classId");
   window.location.href=`requestedStudents.html?classId=${classId}`;
 }
 
@@ -88,8 +84,8 @@ const setupPage = () => {
   });
 };
 
-function holdlist(){
-  window.location.href = `holdClasses.html?classId=${classId}&className=${className}`
-}
-
 setupPage();
+
+function uploadlist(){
+    window.location.href = `created_classes.html?classId=${classId}&className=${className}`
+}

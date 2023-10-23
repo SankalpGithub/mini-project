@@ -28,19 +28,25 @@ async function fetchdata(){
   const displayData = (username, createClassArray) => {
     document.getElementById("username").textContent = username;
     createClassArray.map((ele)=>{
-        const card = `<li onclick="lectures(${ele.classId}, '${ele.className}')">
+        const card = `<li>
         <div id="class-name">
+        <div  id="clickdiv" onclick="lectures(${ele.classId}, '${ele.className}')">
             <h4>${ele.className}</h4>
-            <h6>${ele.numberOfStudents}</h6>
+            </div>
+            <div id="delete">
             <i class="ri-delete-bin-line" onClick="deleteClass(${ele.classId})"></i>
-        </div>
-        </li>`;
+            </div>
+            </div>
+            </li>`;
         document.getElementById("info").innerHTML += card;
     })
 }
 
 const deleteClass = async(id) => {
-  const url = "https://takemyattendence-27rl.onrender.com/deleteclass/" + id;
+  var result = window.confirm("Do you want to delete Class?");
+  if (result) {
+      // User clicked "OK"
+      const url = "https://takemyattendence-27rl.onrender.com/deleteclass/" + id;
   await fetch(url, {
     method: 'DELETE',
   })
@@ -51,12 +57,15 @@ const deleteClass = async(id) => {
       return response.json();
     })
     .then((data) => {
-        alert("Class removed successfully");
         location.reload();
       })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
     });
+  } else {
+      // User clicked "Cancel"
+  }
+  
 }
 
 function new_btn(){
