@@ -30,7 +30,7 @@ async function fetchdata(){
     document.getElementById("username").textContent = username;
     joinClassArray.map((ele)=>{
         const card = `<li>
-        <div id="class-name">
+        <div id="class-name" onclick="joinedClasses()">
             <h4>${ele.className}</h4>
             <h6>${ele.numberOfStudents}</h6>
         </div>

@@ -5,7 +5,7 @@ var className = query.get("className");
 
 const showClassData = (classId, className) => {
   const profileHeader = `<h3 id="className">${className}</h3>
-  <h3 id="myclassId">${classId}</h3>`;
+  <h3 id="myclassId">class ID: ${classId}</h3>`;
   document.getElementById("profile").innerHTML = profileHeader;
 };
 
@@ -48,7 +48,7 @@ function sortfun(lecture){
 } 
 
 const displayData = (lectureArray) => {
-  console.log(lectureArray);
+  lectureArray.reverse();
   lectureArray.map((ele) => {
     const card = ` <li id="ud_further" onclick="exportPage(${ele._id}, '${ele.date}', '${className}')">
         <div id="date">
@@ -75,6 +75,13 @@ function requested(){
   window.location.href=`requestedStudents.html?classId=${classId}`;
 }
 
+function takeClass(){
+
+  var query = new URLSearchParams(window.location.search);
+var classId = query.get("classId");
+  window.location.href=`takeClass.html?classId=${classId}`;
+
+}
 const setupPage = () => {
   lectures();
   document.addEventListener("DOMContentLoaded", function () {
