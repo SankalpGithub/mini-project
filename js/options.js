@@ -73,7 +73,12 @@ async function create_class(){
           })
           .then((data) => {
             console.log(data)
+            if (data['status'])
               window.location.href = "dashboard_J.html";
+            else{
+              alert(data['messager']);
+            }
+
           })
           .catch((error) => {
             console.error("There was a problem with the fetch operation:", error);

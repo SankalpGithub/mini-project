@@ -35,7 +35,7 @@ async function request(classId) {
       <td>${ele.rollno}</td>
       <td>${ele.name}</td>
       <td>${ele.email}</td>
-      <td class="C"><button class="check" onclick="accept('${ele.email}', ${classId}, ${true})"><i class="fa-solid fa-check"></i></button><button class="uncheck" onclick="accept(${ele.email}, ${classId}, ${false})"><i class="fa-solid fa-xmark"></i></button></td>
+      <td class="C"><button class="check" onclick="accept('${ele.email}', ${classId}, ${true})"><i class="fa-solid fa-check"></i></button><button class="uncheck" onclick="accept('${ele.email}', ${classId}, ${false})"><i class="fa-solid fa-xmark"></i></button></td>
   </tr>`;
       document.getElementById("info").innerHTML += card;
     });
@@ -63,7 +63,7 @@ async function request(classId) {
         })
         .then((data) => {
           console.log(data);
-          location.reload();
+          // location.reload();
         })
         .catch((error) => {
           console.error("There was a problem with the fetch operation:", error);

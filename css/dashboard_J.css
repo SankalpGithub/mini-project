@@ -111,6 +111,7 @@ h5{
     /* justify-content: center; */
     list-style-type: none;
     flex-direction: column;
+    overflow: hidden;
 }
 #class-name:hover{
     scale: 1.1;
