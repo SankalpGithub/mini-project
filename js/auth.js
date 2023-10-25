@@ -73,7 +73,9 @@ async function login(){
          window.location.href = "OTP.html?email=" + encodeURIComponent(email);
   
   
-          }
+          }else{
+alert(data['message']);
+}
         // window.location.href = "OTP.html";
         console.log(data['status']);
       })
