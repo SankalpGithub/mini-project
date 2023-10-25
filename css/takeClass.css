@@ -20,6 +20,15 @@ table{
     background-color: rgb(162, 196, 224);
     font-size: 25px;
 }
+
+#pabuttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    flex-direction: row;
+}
+
 th{
     text-align: start;
 }
@@ -27,27 +36,28 @@ th{
     text-align: center;
 }
 #present{
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
     width: 45px;
-    color: darkblue;
-    background-color: rgb(39, 132, 209);
+    color: rgb(0, 0, 0);
+    background-color: rgb(253, 253, 253);
     font-size: 20px;
     border-radius: 10px;
-    transition: all 100ms steps(6);
 }
 #absent{
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #000;
     height: 40px;
     width: 45px;
     background-color: white;
     font-size: 20px;
     border-radius: 10px;
-    transition: all 100ms steps(6);
 }
 #below{
     padding: 0 20px 0 80px;
@@ -64,16 +74,4 @@ button{
     font-weight: 530;
     margin: 40px 0 0 0;
     transition: all 100ms steps(6);
-}
-#present:hover{
-    scale: 1.3;
-}
-#absent:hover{
-    scale: 1.3;
-}
-#present:active{
-    transform: translateX(100%);
-}
-#absent:active{
-    transform: translateX(-100%);
 }

@@ -23,7 +23,6 @@ async function getJoindedStudents(classId) {
       return response.json();
     })
     .then((data) => {
-      console.log(typeof data);
       displayData(data);
     })
     .catch((error) => {
@@ -37,14 +36,12 @@ const displayData = (joindedStudents) => {
     const card = `<tr>
       <td>${ele.rollno}</td>
       <td>${ele.name}</td>
+      <div id="pabuttons">
       <td>
-          <div id="present" onclick="markPresent('${ele.name}', '${ele.email}', '${ele.rollno}', ${ele.userId})">
-              <h3>P</h3>
-          </div>
+          <button id="present" onclick="markPresent('${ele.name}', '${ele.email}', '${ele.rollno}', ${ele.userId})">P</button>
       </td>
       <td>
-          <div id="absent" onclick="markAbsent('${ele.name}', '${ele.email}', '${ele.rollno}', ${ele.userId})">
-              <h3>A</h3>
+          <button id="absent" onclick="markAbsent('${ele.name}', '${ele.email}', '${ele.rollno}', ${ele.userId})">A</button>
           </div>
       </td> `;
     document.getElementById("info").innerHTML += card;
@@ -53,6 +50,11 @@ const displayData = (joindedStudents) => {
 
 //onclick absent 
 const markAbsent = (name, email, rollno, userId) => {
+  document.getElementById('absent').style.backgroundColor = "red";
+  document.getElementById('absent').style.color = "white";
+
+  document.getElementById('present').style.backgroundColor = "white";
+  document.getElementById('present').style.color = "black";
   let Adata = {
     name,
     email,
@@ -66,16 +68,17 @@ const markAbsent = (name, email, rollno, userId) => {
 presentStudents = presentStudents.filter(obj => obj.userId !== userId);
 absentStudents.push(Adata);
   } else {
-    console.log("value get added");
     absentStudents.push(Adata);
   }
-  console.log(absentStudents);
-  console.log("after deleting present students", presentStudents);
 };
 
 //onclick present
 const markPresent = (name, email, rollno, userId) => {
+  document.getElementById('present').style.backgroundColor = "blue";
+  document.getElementById('present').style.color = "white";
 
+  document.getElementById('absent').style.backgroundColor = "white";
+  document.getElementById('absent').style.color = "black";
   let Pdata = {
     name,
     email,
