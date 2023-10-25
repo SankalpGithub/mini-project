@@ -30,7 +30,7 @@ async function fetchdata(){
     createClassArray.map((ele)=>{
         const card = `<li>
         <div id="class-name">
-        <div  id="clickdiv" onclick="lectures(${ele.classId}, '${ele.className}')">
+        <div  id="clickdiv" onclick="lectures(${ele.classId}, '${ele.className}', '${ele.classPassword}')">
             <h4>${ele.className}</h4>
             </div>
             <div id="delete">
@@ -72,8 +72,8 @@ function new_btn(){
   window.location.href = "options.html?email=" + encodeURIComponent(email);
 }
 
-function lectures(classId,className){
-  var url = `created_classes.html?classId=${classId}&className=${className}`;
+function lectures(classId,className, classPassword){
+  var url = `created_classes.html?classId=${classId}&className=${className}&classPassword=${classPassword}`;
   console.log(url)
   window.location.href = url;
 }

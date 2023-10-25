@@ -2,10 +2,12 @@ const authToken = localStorage.getItem("auth_token");
 var query = new URLSearchParams(window.location.search);
 var classId = parseInt(query.get("classId"));
 var className = query.get("className");
+var classPassword = query.get("classPassword");
 
-const showClassData = (classId, className) => {
+const showClassData = (classId, className, classPassword) => {
   const profileHeader = `<h3 id="className">${className}</h3>
-  <h3 id="myclassId">class ID: ${classId}</h3>`;
+  <h3 id="myclassId">class ID: ${classId}</h3>
+  <h3 id="myclasspassword">class ID: ${classPassword}</h3>`;
   document.getElementById("profile").innerHTML = profileHeader;
 };
 
@@ -84,7 +86,7 @@ const setupPage = () => {
   lectures();
   document.addEventListener("DOMContentLoaded", function () {
     // Your code to set innerHTML goes here
-    showClassData(classId, className);
+    showClassData(classId, className, classPassword);
   });
 };
 

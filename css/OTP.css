@@ -7,6 +7,10 @@ body{
     font-family: 'Montserrat', sans-serif;
     /* background-color: rgb(222, 222, 222); */
 }
+
+#resendOTP{
+    cursor: pointer;
+}
 #OTP{
     background-color: rgb(162, 196, 224);
     display: flex;
