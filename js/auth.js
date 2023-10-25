@@ -69,6 +69,7 @@ async function login(){
       .then((data) => {
         console.log(data);
         if(data['status'] == true){
+alert(data['message']);
   
          window.location.href = "OTP.html?email=" + encodeURIComponent(email);
   
