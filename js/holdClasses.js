@@ -72,15 +72,10 @@ function requested(){
   window.location.href=`requestedStudents.html?classId=${classId}`;
 }
 
-function takeClass(absentStudents, presentStudents){
+function takeClass(){
   var query = new URLSearchParams(window.location.search);
 var classId = query.get("classId");
-const jsonStringab= JSON.stringify(absentStudents);
-const jsonStringpre = JSON.stringify(presentStudents);
-
-const encodedStringab = encodeURIComponent(jsonStringab);
-const encodedStringpre = encodeURIComponent(jsonStringpre);
-  window.location.href=`takeClass.html?classId=${classId}&absentStudents=${encodedStringab}&presentStudents=${encodedStringpre}`;
+  window.location.href=`takeClass.html?classId=${classId}`;
 }
 const setupPage = () => {
   lectures();
