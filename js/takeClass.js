@@ -1,6 +1,7 @@
 var query = new URLSearchParams(window.location.search);
 var classId = parseInt(query.get("classId"));
 getJoindedStudents(classId);
+totalStudents = [];
 
 absentStudents = [];
 presentStudents = [];
@@ -32,29 +33,33 @@ async function getJoindedStudents(classId) {
 
 const displayData = (joindedStudents) => {
   joindedStudents.map((ele) => {
-    console.log(ele);
     const card = `<tr>
+    <div id="row">
       <td>${ele.rollno}</td>
       <td>${ele.name}</td>
       <div id="pabuttons">
       <td>
-          <button id="present" onclick="markPresent('${ele.name}', '${ele.email}', '${ele.rollno}', ${ele.userId})">P</button>
+          <button id="present${ele.rollno}" class="pbutton" onclick="markPresent('${ele.name}', '${ele.email}', '${ele.rollno}', ${ele.userId})">P</button>
       </td>
       <td>
-          <button id="absent" onclick="markAbsent('${ele.name}', '${ele.email}', '${ele.rollno}', ${ele.userId})">A</button>
+          <button id="absent${ele.rollno}" class="abutton" onclick="markAbsent('${ele.name}', '${ele.email}', '${ele.rollno}', ${ele.userId})">A</button>
           </div>
-      </td> `;
+          </div> 
+      </td>`;
     document.getElementById("info").innerHTML += card;
-  });
+    totalStudents.push(ele.userId);
+  }
+  );
+  console.log(totalStudents.length);
 };
 
 //onclick absent 
 const markAbsent = (name, email, rollno, userId) => {
-  document.getElementById('absent').style.backgroundColor = "red";
-  document.getElementById('absent').style.color = "white";
+  document.getElementById(`absent${rollno}`).style.backgroundColor = "red";
+  document.getElementById(`absent${rollno}`).style.color = "white";
 
-  document.getElementById('present').style.backgroundColor = "white";
-  document.getElementById('present').style.color = "black";
+  document.getElementById(`present${rollno}`).style.backgroundColor = "white";
+  document.getElementById(`present${rollno}`).style.color = "black";
   let Adata = {
     name,
     email,
@@ -69,16 +74,20 @@ presentStudents = presentStudents.filter(obj => obj.userId !== userId);
 absentStudents.push(Adata);
   } else {
     absentStudents.push(Adata);
-  }
+}
+console.log("absent list: ");
+console.log(absentStudents);
+console.log("present list: ");
+console.log(presentStudents);
 };
 
 //onclick present
 const markPresent = (name, email, rollno, userId) => {
-  document.getElementById('present').style.backgroundColor = "blue";
-  document.getElementById('present').style.color = "white";
+  document.getElementById(`present${rollno}`).style.backgroundColor = "blue";
+  document.getElementById(`present${rollno}`).style.color = "white";
 
-  document.getElementById('absent').style.backgroundColor = "white";
-  document.getElementById('absent').style.color = "black";
+  document.getElementById(`absent${rollno}`).style.backgroundColor = "white";
+  document.getElementById(`absent${rollno}`).style.color = "black";
   let Pdata = {
     name,
     email,
@@ -87,17 +96,17 @@ const markPresent = (name, email, rollno, userId) => {
   };
 
   if (presentStudents.some((obj) => obj.userId === userId)) {
-    alert("value is allrady absent mark");
+    alert("value is allrady present mark");
   } else if (absentStudents.some((obj) => obj.userId == userId)) {
-// Use the filter() method to create a new array without the specified object
-presentStudents = absentStudents.filter(obj => obj.userId !== userId);
+absentStudents = absentStudents.filter(obj => obj.userId !== userId);
 presentStudents.push(Pdata);
-  } else {
-    console.log("value get added");
+  }else {
     presentStudents.push(Pdata);
   }
+  console.log("absent list: ");
+  console.log(absentStudents);
+  console.log("present list: ");
   console.log(presentStudents);
-  console.log("after deleting present students", absentStudents);
 };
 
 async function postAttendance(lectureStatus) {
@@ -107,8 +116,7 @@ async function postAttendance(lectureStatus) {
     absentStudents,
     lectureStatus,
   };
-  console.log(post)
-  console.log(post);
+  if(presentStudents.length + absentStudents.length == totalStudents.length){
   await fetch("https://takemyattendence-27rl.onrender.com/createLecture", {
     method: "POST",
     headers: {
@@ -124,17 +132,16 @@ async function postAttendance(lectureStatus) {
     })
     .then((data) => {
       console.log(data);
-      lectures()
+      window.history.back();
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
     });
+  }else{
+    alert("Incomplete Attendence")
+  }
 }
 
-function lectures(){
-  var url = `dashboard_C.html`;
-  window.location.href = url;
-}
 
 function cancel(){
   window.history.back();

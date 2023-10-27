@@ -3,7 +3,6 @@ console.log(authToken)
 
 
 async function create_class(){
-    console.log("button clicked")
         const className = document.getElementById("className").value;
         const classPassword = document.getElementById("classPass").value;
     
@@ -27,12 +26,11 @@ async function create_class(){
             return response.json();
           })
           .then((data) => {
-            console.log("fsadfasdf")
+          window.history.back();
           })
           .catch((error) => {
             console.error("There was a problem with the fetch operation:", error);
           });
-          window.location.href = "dashboard_C.html";
     }
 
     //join class function
@@ -74,7 +72,7 @@ async function create_class(){
           .then((data) => {
             console.log(data)
             if (data['status'])
-              window.location.href = "dashboard_J.html";
+            window.history.back();
             else{
               alert(data['messager']);
             }

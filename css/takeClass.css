@@ -20,7 +20,10 @@ table{
     background-color: rgb(162, 196, 224);
     font-size: 25px;
 }
-
+#row{
+    display: inline;
+    background: #000;
+}
 #pabuttons{
     display: flex;
     align-items: center;
@@ -35,7 +38,7 @@ th{
 #P{
     text-align: center;
 }
-#present{
+.pbutton{
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -47,7 +50,7 @@ th{
     font-size: 20px;
     border-radius: 10px;
 }
-#absent{
+.abutton{
     cursor: pointer;
     display: flex;
     align-items: center;

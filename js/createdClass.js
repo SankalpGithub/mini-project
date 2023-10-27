@@ -6,8 +6,8 @@ var classPassword = query.get("classPassword");
 
 const showClassData = (classId, className, classPassword) => {
   const profileHeader = `<h3 id="className">${className}</h3>
-  <h3 id="myclassId">class ID: ${classId}</h3>
-  <h3 id="myclasspassword">class ID: ${classPassword}</h3>`;
+  <div id = "classInfo"><h3 id="myclassId">class ID: ${classId}</h3>
+  <h3 id="myclasspassword">class Password: ${classPassword}</h3></div>`;
   document.getElementById("profile").innerHTML = profileHeader;
 };
 
@@ -91,7 +91,7 @@ const setupPage = () => {
 };
 
 function holdlist(){
-  window.location.href = `holdClasses.html?classId=${classId}&className=${className}`
+  window.location.href = `holdClasses.html?classId=${classId}&className=${className}&classPassword=${classPassword}`
 }
 
 setupPage();
