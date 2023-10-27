@@ -51,7 +51,7 @@ function sortfun(lecture){
 const displayData = (lectureArray) => {
   lectureArray.reverse();
   lectureArray.map((ele) => {
-    const card = ` <li id="ud_further" onclick="takeClass(${ele.absentStudents}, ${ele.presentstudents})">
+    const card = ` <li id="ud_further" onclick="takeClass()">
         <div id="date">
             <h5>${ele.date}</h5>
         </div>

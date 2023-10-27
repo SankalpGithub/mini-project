@@ -26,7 +26,7 @@ async function create_class(){
             return response.json();
           })
           .then((data) => {
-          window.history.back();
+          window.location.href = "dashboard_C.html";
           })
           .catch((error) => {
             console.error("There was a problem with the fetch operation:", error);
@@ -71,8 +71,9 @@ async function create_class(){
           })
           .then((data) => {
             console.log(data)
-            if (data['status'])
-            window.history.back();
+            if (data['status']){
+            window.location.href = "dashboard_J.html";
+            }
             else{
               alert(data['messager']);
             }
