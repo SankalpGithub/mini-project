@@ -8,6 +8,17 @@ body{
 
 }
 
+#lists{
+    height: 345px;
+    width: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+}
+::-webkit-scrollbar {
+    width: 0;
+}
+
 #classInfo{
     display: flex;
     flex-direction: column;

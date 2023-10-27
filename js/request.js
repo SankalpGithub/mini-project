@@ -66,5 +66,5 @@ async function request(classId) {
         .catch((error) => {
           console.error("There was a problem with the fetch operation:", error);
         });
-        window.location.reload();
+        location.reload();
     }

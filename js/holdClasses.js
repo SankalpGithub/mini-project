@@ -30,8 +30,8 @@ async function lectures() {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-      displayData(sortfun(data));
+      newdata = sortfun(data);
+      displayData(newdata);
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
@@ -45,14 +45,13 @@ function sortfun(lecture){
       uplodedlec.push(ele)
     }
   });
-  console.log(uplodedlec);
   return uplodedlec;
 } 
 
 const displayData = (lectureArray) => {
   lectureArray.reverse();
   lectureArray.map((ele) => {
-    const card = ` <li id="ud_further" onclick="takeClass()">
+    const card = ` <li id="ud_further" onclick="takeClass(${ele.absentStudents}, ${ele.presentstudents})">
         <div id="date">
             <h5>${ele.date}</h5>
         </div>
@@ -73,10 +72,15 @@ function requested(){
   window.location.href=`requestedStudents.html?classId=${classId}`;
 }
 
-function takeClass(){
+function takeClass(absentStudents, presentStudents){
   var query = new URLSearchParams(window.location.search);
 var classId = query.get("classId");
-  window.location.href=`takeClass.html?classId=${classId}`;
+const jsonStringab= JSON.stringify(absentStudents);
+const jsonStringpre = JSON.stringify(presentStudents);
+
+const encodedStringab = encodeURIComponent(jsonStringab);
+const encodedStringpre = encodeURIComponent(jsonStringpre);
+  window.location.href=`takeClass.html?classId=${classId}&absentStudents=${encodedStringab}&presentStudents=${encodedStringpre}`;
 }
 const setupPage = () => {
   lectures();
