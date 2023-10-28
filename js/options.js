@@ -39,6 +39,12 @@ async function create_class(){
       var email = query.get('email');
       window.location.href = "join_class.html?email=" + encodeURIComponent(email);
     }
+    
+    function create(){
+      // var query = new URLSearchParams(window.location.search);
+      // var email = query.get('email');
+      window.location.href = "create_class.html";
+    }
 
     async function join_class(){
       var query = new URLSearchParams(window.location.search);
