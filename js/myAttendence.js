@@ -69,7 +69,7 @@ const days = (infoList) => {
       const card = `<tr>
       <td>${presentDay}</td>
       <td>${absentDay}</td>
-      <td>${persent}</td>
+      <td>${persent}%</td>
   </tr>`;
       document.getElementById("lt").innerHTML += card;
   }

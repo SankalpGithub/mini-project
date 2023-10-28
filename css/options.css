@@ -10,7 +10,7 @@ body {
 text-align: center; 
 } */
 button{
-    color: white;
+    /* color: white; */
     background-color: rgb(30, 79, 119);
     width: 150px;
     height: 55px;
