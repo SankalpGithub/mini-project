@@ -57,7 +57,7 @@ const displayData = (lectureArray) => {
             <h5>${ele.date}</h5>
         </div>
         <div id="time">
-            <h5>${ele.time}</h5>
+            <h5>${ele.time} </h5>
         </div>
         <div id="day">
             <h5>${ele.day}</h5>

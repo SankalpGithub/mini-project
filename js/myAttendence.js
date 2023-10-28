@@ -40,13 +40,22 @@ async function getMyAttendence() {
       });
   }
 
+function ab(presentstatus){
+    if(presentstatus == true){
+        return "P"
+    }else{
+        return "A"
+    }
+}
+
   const displayData = (joindedStudents) => {
     joindedStudents.map((ele) => {
+      var pres = ab(ele.presentStatus);
       console.log(ele);
       const card = `<tr>
       <td>${ele.date}/ ${ele.time}</td>
       <td>${ele.day}</td>
-      <td>${ele.presentStatus}</td>
+      <td>${pres}</td>
   </tr>`;
       document.getElementById("ft").innerHTML += card;
     });
